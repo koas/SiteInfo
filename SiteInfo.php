@@ -213,6 +213,14 @@ class SiteInfo
 		if ($url == '')
 			return '';
 
+		// Some URLs begin with //, check for those
+		if (substr($url, 0, 2) == '//')
+		{
+			$p = parse_url($this->url);
+			$url = $p['scheme'].':'.$url;
+			return $url;
+		}
+		
 		// Check if URL is relative
 		if (substr($url, 0, 4) != 'http')
 		{
