@@ -27,7 +27,7 @@ class SiteInfo
 	 */
 	function __construct($url)
 	{
-		$this->url = $url;
+		$this->url = trim($url);
 
 		$this->getXML();
 	}
